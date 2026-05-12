@@ -1,12 +1,24 @@
 void intro(){
-  background(255,0,0);
-  rect(300, 500, 200, 100);
+  background(lightGray);
+  
+  //start game text
+  textSize(100);
+  fill(0);
+  text("CLICKER GAME", 400, 350);
+  
+  //start game button
+  fill(255);
+  rect(100, 600, 200, 100);
+  rectTactile(100, 600, 200, 100);
+  fill(0);
+  textSize(75);
+  text("Start", 200, 650);
 }
 
 
 
 void introClicks(){
-  if(mouseX > 300 && mouseX < 500 && mouseY > 500 && mouseY < 600){
-    mode = GAMEOVER;
+  if(mouseX > 100 && mouseX < 300 && mouseY > 600 && mouseY < 700){
+    mode = GAME;
   }
 }
