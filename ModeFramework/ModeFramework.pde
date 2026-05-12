@@ -21,10 +21,12 @@ int score, lives;
 color darkGreen = #008000;
 color lightGray = #D3D3D3;
 color red = #FF0000;
+color gold = #BA8E23;
+color yellow = #FFEF00;
 
 //sound variables
 Minim minim;
-
+AudioPlayer intro;
 
 
 void setup() {
@@ -42,6 +44,10 @@ void setup() {
   vy = random(-5, 5);
   score = 0;
   lives = 3;
+  
+  //sound variables
+  minim = new Minim(this);
+  intro = minim.loadFile("intro.mp3");
 }
 
 void draw() {

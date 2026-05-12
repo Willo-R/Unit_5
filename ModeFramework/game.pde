@@ -37,7 +37,9 @@ void gameClicks() {
   if (dist(mouseX, mouseY, x, y) < d / 2) {
     score += 1;
   } 
-  
+  else if(dist(mouseX, mouseY, 100, 100) < 50){
+    mode = PAUSE;
+  }
   
   else {
     lives -= 1;

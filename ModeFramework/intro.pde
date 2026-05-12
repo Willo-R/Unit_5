@@ -1,5 +1,5 @@
 void intro(){
-  background(lightGray);
+  background(gold);
   
   //start game text
   textSize(100);
@@ -8,11 +8,14 @@ void intro(){
   
   //start game button
   fill(255);
-  rect(100, 600, 200, 100);
   rectTactile(100, 600, 200, 100);
-  fill(0);
+  rect(100, 600, 200, 100);
+  fill(0); 
   textSize(75);
   text("Start", 200, 650);
+  
+  //song
+  intro.play();
 }
 
 
