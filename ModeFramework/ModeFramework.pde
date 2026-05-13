@@ -26,7 +26,7 @@ color yellow = #FFEF00;
 
 //sound variables
 Minim minim;
-AudioPlayer intro;
+AudioPlayer intro, point;
 
 
 void setup() {
@@ -48,6 +48,7 @@ void setup() {
   //sound variables
   minim = new Minim(this);
   intro = minim.loadFile("intro.mp3");
+  point = minim.loadFile("pointSoundTrack.mp3");
 }
 
 void draw() {

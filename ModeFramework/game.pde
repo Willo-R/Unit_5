@@ -36,6 +36,8 @@ void game() {
 void gameClicks() {
   if (dist(mouseX, mouseY, x, y) < d / 2) {
     score += 1;
+    point.rewind();
+    point.play();
   } 
   else if(dist(mouseX, mouseY, 100, 100) < 50){
     mode = PAUSE;

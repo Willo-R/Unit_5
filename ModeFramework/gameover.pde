@@ -1,13 +1,16 @@
-void gameover(){
+void gameover() {
   background(red);
   textSize(100);
   text("GAME OVER", 400, 350);
+
+  //music
+  intro.pause();
 }
 
-void gameoverClicks(){
-  if(mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height){
-    mode = INTRO;
-    score = 0;
-    lives = 3;
-  }
+void gameoverClicks() {
+  mode = INTRO;
+  score = 0;
+  lives = 3;
+  
+  intro.rewind();
 }
