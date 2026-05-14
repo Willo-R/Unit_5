@@ -11,11 +11,15 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int OPTIONS = 4;
 
 //TARGET VARIABLES
 float x, y, d;
 float vx, vy; //target velocity
 int score, lives;
+
+//HIGH SCORE
+int highScore;
 
 //COLOR PALETTE
 color darkGreen = #008000;
@@ -27,6 +31,9 @@ color yellow = #FFEF00;
 //sound variables
 Minim minim;
 AudioPlayer intro, point, miss, gameover;
+
+//font
+PFont pirate;
 
 
 void setup() {
@@ -45,12 +52,18 @@ void setup() {
   score = 0;
   lives = 3;
   
+  //high score
+  highScore = 0;
+  
   //sound variables
   minim = new Minim(this);
   intro = minim.loadFile("intro.mp3");
   point = minim.loadFile("point.mp3");
   miss = minim.loadFile("miss.mp3");
   gameover = minim.loadFile("gameover.mp3");
+  
+  //font
+  pirate = createFont("pirateFont.ttf", 100);
 }
 
 void draw() {
@@ -66,6 +79,9 @@ void draw() {
   else if (mode == GAMEOVER) {
     gameover();
   } 
+  else if (mode == OPTIONS){
+    options();
+  }
   else {
     println("Error: Mode = " + mode);
   }

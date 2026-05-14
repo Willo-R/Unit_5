@@ -2,6 +2,7 @@ void game() {
   background(darkGreen);
   
   fill(0);
+  textFont(pirate);
   textSize(50);
   text("Score: " + score, width/2, 50);
   text("lives: " + lives, width/2, 100);
@@ -35,11 +36,15 @@ void game() {
 void gameClicks() {
   if (dist(mouseX, mouseY, x, y) < d / 2) {
     score += 1;
+    vx *= 1.1;
+    vy *= 1.1;
+    
     point.rewind();
     point.play();
   } 
   else if(dist(mouseX, mouseY, 100, 100) < 50){
     mode = PAUSE;
+    intro.pause();
   }
   
   else {

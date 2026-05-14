@@ -11,4 +11,7 @@ void mouseReleased(){
   else if (mode == GAMEOVER) {
     gameoverClicks();
   } 
+  else if (mode == OPTIONS){
+    optionsClicks();
+  }
 }
