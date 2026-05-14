@@ -5,6 +5,7 @@ void gameover() {
 
   //music
   intro.pause();
+  gameover.play();
 }
 
 void gameoverClicks() {

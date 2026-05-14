@@ -11,8 +11,7 @@ void game() {
   fill(255);
   strokeWeight(3);
   square(50, 50, 100);
-  line(85, 70, 85, 130);
-  line(115, 70, 115, 130);
+  pauseButton();
 
   //display target
   stroke(0);
@@ -46,5 +45,7 @@ void gameClicks() {
   else {
     lives -= 1;
     if(lives == 0) mode = GAMEOVER;
+    miss.rewind();
+    miss.play();
   }
 }
