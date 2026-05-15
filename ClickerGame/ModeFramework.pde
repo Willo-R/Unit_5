@@ -63,6 +63,7 @@ void setup() {
   x= width/2;
   y = height/2;
   d = 125;
+  previousD = d;
   vx = random(-5, 5);
   vy = random(-5, 5);
   score = 0;
@@ -86,11 +87,15 @@ void setup() {
   skeletonOn = true;
   pirateFace = loadImage("pirateFace.png");
   pirateFaceOn = false;
+  sizeX = 90;
+  sizeY = 90;
+  previousSizeX = sizeX;
+  previousSizeY = sizeY;
   
   //slider
   sliderY = 625;
   
-  reset();
+  //reset();
 }
 
 void draw() {
