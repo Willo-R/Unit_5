@@ -11,15 +11,24 @@ float ballX, ballY, ballD;  //ball
 //keyboard variables
 boolean wKey, sKey, upKey, downKey;
 
+//color palette
+color red = #cd071e;
+color orange = #f37042;
+color yellow = #ffb200;
+color green = #d0db61;
+color blue = #365194;
+color lightGray = #8f9e9e;
 
-
-
-
+//font
+PFont chinese; 
 
 
 void setup() {
   size(800, 800);
-  mode = GAME;
+  mode = INTRO;
+  textAlign(CENTER,CENTER);
+  stroke(0);
+  strokeWeight(2);
   
   //initalize paddles
   leftX = 0;
@@ -33,6 +42,12 @@ void setup() {
   ballX = width/2;
   ballY = height/2;
   ballD = 100;
+  
+  //initialize keyboard vars
+  wKey = sKey = upKey = downKey = false;
+  
+  //font
+  chinese = createFont("chinese.otf", 100);
 }
 
 void draw() {
