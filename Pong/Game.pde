@@ -13,6 +13,7 @@ void game() {
   if (sKey == true) leftY += 5;
   if (upKey == true) rightY -= 5;
   if (downKey == true) rightY += 5;
+  
 
   //center line
   strokeWeight(5);
@@ -30,6 +31,7 @@ void game() {
   timer -= 1;
 
   //ball
+  strokeWeight(3);
   fill(green);
   circle(ballX, ballY, ballD);
 
@@ -54,8 +56,18 @@ void game() {
     timer = 50;
   }
 
-  //bounce
-  if (ballY < ballD/2 || ballY > height - ballD / 2) vy *= -1;
+  //ball bounce & limit
+  if (ballY < ballD/2 || ballY > height - ballD / 2) {
+    vy *= -1;
+    if(ballY < ballD/2) ballY = ballD/2;
+    else ballY = height - ballD / 2;
+  }
+  
+  //paddle limit
+  if(leftY < 50 + ballD/2) leftY = 50 + ballD/2;
+  if(leftY > 550 - ballD/2) leftY = 550 - ballD/2;
+  if(rightY < 50 + ballD/2) rightY = 50 + ballD/2;
+  if(rightY > 550 - ballD/2) rightY = 550 - ballD/2;
 
 
   //collision
@@ -71,6 +83,9 @@ void game() {
     vx = (ballX - rightX) / 50;
     vy = (ballY - rightY) / 50;
   }
+  
+  //Gameover transition
+  if(leftScore == 3 || rightScore == 3) mode = GAMEOVER;
 }
 
 void gameClicks() {

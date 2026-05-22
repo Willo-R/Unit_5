@@ -35,7 +35,7 @@ PFont chinese;
 
 
 void setup() {
-  size(800, 800);
+  size(800, 600);
   mode = INTRO;
   textAlign(CENTER,CENTER);
   stroke(0);
