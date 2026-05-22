@@ -8,6 +8,17 @@ final int GAMEOVER = 3;
 float leftX, leftY, leftD, rightX, rightY, rightD; //paddles
 float ballX, ballY, ballD;  //ball
 
+//distamce between the ball and the paddle
+float leftBallPaddleD;
+float rightBallPaddleD;
+
+//movment variables
+float vx;
+float vy;
+
+//scoring
+int leftScore, rightScore, timer;
+
 //keyboard variables
 boolean wKey, sKey, upKey, downKey;
 
@@ -42,6 +53,15 @@ void setup() {
   ballX = width/2;
   ballY = height/2;
   ballD = 100;
+  
+  //initialize movement
+  vx = random(-3, 3);
+  vy = random(-3, 3);
+  
+  //initialize score
+  leftScore = 0;
+  rightScore = 0;
+  timer = 50;
   
   //initialize keyboard vars
   wKey = sKey = upKey = downKey = false;
