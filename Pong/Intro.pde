@@ -22,8 +22,23 @@ void intro(){
   fill(0);
   text("2 Player", 585, 500);
   
+  //song
+  intro.play();
+  
 }
 
 void introClicks(){
-  if(mouseX > 470 && mouseX < 700 && mouseY > 450 && mouseY < 550) mode = GAME;
+  //1 player
+  if(mouseX > 100 && mouseX < 330 && mouseY > 450 && mouseY < 550){
+    mode = GAME;
+    AI = true;
+    intro.pause();
+  }
+  
+  //2 player 
+  if(mouseX > 470 && mouseX < 700 && mouseY > 450 && mouseY < 550) {
+    mode = GAME;
+    AI = false;
+    intro.pause();
+  }
 }

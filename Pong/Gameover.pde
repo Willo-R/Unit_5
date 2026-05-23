@@ -1,4 +1,4 @@
-void gameover(){
+void gameover() {
   //background
   background(yellow);
   fill(255);
@@ -8,13 +8,6 @@ void gameover(){
   circle(leftX, leftY, leftD);
   fill(blue);
   circle(rightX, rightY, rightD);
-
-  //draw paddles
-  if (wKey == true) leftY -= 5;
-  if (sKey == true) leftY += 5;
-  if (upKey == true) rightY -= 5;
-  if (downKey == true) rightY += 5;
-  
 
   //center line
   strokeWeight(5);
@@ -28,22 +21,24 @@ void gameover(){
   text(leftScore, width/4, 100);
   fill(blue);
   text(rightScore, 3*width/4, 100);
-  //text(timer, 3*width/4, 550);
-  timer -= 1;
-  
+
   //win text display
-  if(leftScore > rightScore){
+  if (leftScore > rightScore) {
     textSize(100);
     fill(red);
     text("LEFT WINS", 400, 300);
-    
-  }
-  else{
+  } else {
     fill(blue);
     text("RIGHT WINS", 400, 300);
   }
+
+  //victory
+  victory.play();
 }
 
-void gameoverClicks(){
-  
+void gameoverClicks() {
+  reset();
+  mode = INTRO;
+  victory.pause();
+  victory.rewind();
 }

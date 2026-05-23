@@ -9,11 +9,16 @@ void game() {
   circle(rightX, rightY, rightD);
 
   //draw paddles
-  if (wKey == true) leftY -= 5;
-  if (sKey == true) leftY += 5;
-  if (upKey == true) rightY -= 5;
-  if (downKey == true) rightY += 5;
-  
+  if (wKey == true) leftY -= 8;
+  if (sKey == true) leftY += 8;
+
+  if (AI == false) {
+    if (upKey == true) rightY -= 8;
+    if (downKey == true) rightY += 8;
+  } else {
+    if (ballY > rightY && ballX > 500 && vx > 0) rightY += 8;
+    if (ballY < rightY && ballX > 500 && vx > 0) rightY -= 8;
+  }
 
   //center line
   strokeWeight(5);
@@ -44,30 +49,26 @@ void game() {
   //scoring
   if (ballX < 0) {
     rightScore++;
-    ballX = width/2;
-    ballY = height/2;
-    timer = 50;
+    reset2();
   }
 
   if (ballX > width) {
     leftScore++;
-    ballX = width/2;
-    ballY = height/2;
-    timer = 50;
+    reset2(); 
   }
 
   //ball bounce & limit
   if (ballY < ballD/2 || ballY > height - ballD / 2) {
     vy *= -1;
-    if(ballY < ballD/2) ballY = ballD/2;
+    if (ballY < ballD/2) ballY = ballD/2;
     else ballY = height - ballD / 2;
   }
-  
+
   //paddle limit
-  if(leftY < 50 + ballD/2) leftY = 50 + ballD/2;
-  if(leftY > 550 - ballD/2) leftY = 550 - ballD/2;
-  if(rightY < 50 + ballD/2) rightY = 50 + ballD/2;
-  if(rightY > 550 - ballD/2) rightY = 550 - ballD/2;
+  if (leftY < 50 + ballD/2) leftY = 50 + ballD/2;
+  if (leftY > 550 - ballD/2) leftY = 550 - ballD/2;
+  if (rightY < 50 + ballD/2) rightY = 50 + ballD/2;
+  if (rightY > 550 - ballD/2) rightY = 550 - ballD/2;
 
 
   //collision
@@ -75,18 +76,21 @@ void game() {
   rightBallPaddleD = dist(rightX, rightY, ballX, ballY);
 
   if (leftBallPaddleD <= leftD/2 + ballD/2) {
-    vx = (ballX - leftX) / 50;
-    vy = (ballY - leftY) / 50;
+    vx = (ballX - leftX) / 10;
+    vy = (ballY - leftY) / 10;
   }
 
   if (rightBallPaddleD <= leftD/2 + ballD/2) {
-    vx = (ballX - rightX) / 50;
-    vy = (ballY - rightY) / 50;
+    vx = (ballX - rightX) / 10;
+    vy = (ballY - rightY) / 10;
   }
-  
+
   //Gameover transition
-  if(leftScore == 3 || rightScore == 3) mode = GAMEOVER;
+  if (leftScore == 3 || rightScore == 3) mode = GAMEOVER;
 }
 
+
+
 void gameClicks() {
+  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) mode = PAUSE;
 }
