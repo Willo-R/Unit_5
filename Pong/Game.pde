@@ -65,10 +65,10 @@ void game() {
   }
 
   //paddle limit
-  if (leftY < 50 + ballD/2) leftY = 50 + ballD/2;
-  if (leftY > 550 - ballD/2) leftY = 550 - ballD/2;
-  if (rightY < 50 + ballD/2) rightY = 50 + ballD/2;
-  if (rightY > 550 - ballD/2) rightY = 550 - ballD/2;
+  if (leftY < 50 + leftD/2) leftY = 50 + leftD/2;
+  if (leftY > 550 - leftD/2) leftY = 550 - leftD/2;
+  if (rightY < 50 + rightD/2) rightY = 50 + rightD/2;
+  if (rightY > 550 - rightD/2) rightY = 550 - rightD/2;
 
 
   //collision
