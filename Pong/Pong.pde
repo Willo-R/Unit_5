@@ -44,7 +44,7 @@ PFont chinese;
 
 //sound variables
 Minim minim;
-AudioPlayer intro, leftBounce, rightBounce, score, victory;
+AudioPlayer intro, paddleBounce, wallBounce, score, victory;
 
 
 void setup() {
