@@ -8,7 +8,7 @@ void game() {
   fill(blue);
   circle(rightX, rightY, rightD);
 
-  //draw paddles
+  //animate paddles
   if (wKey == true) leftY -= 8;
   if (sKey == true) leftY += 8;
 
@@ -35,7 +35,7 @@ void game() {
   //text(timer, 3*width/4, 550);
   timer -= 1;
 
-  //ball
+  //draw ball
   strokeWeight(3);
   fill(green);
   circle(ballX, ballY, ballD);
@@ -54,12 +54,14 @@ void game() {
 
   if (ballX > width) {
     leftScore++;
-    reset2(); 
+    reset2();
   }
 
-  //ball bounce & limit
+  //ball bounce limit
   if (ballY < ballD/2 || ballY > height - ballD / 2) {
     vy *= -1;
+    wallBounce.rewind();
+    wallBounce.play();
     if (ballY < ballD/2) ballY = ballD/2;
     else ballY = height - ballD / 2;
   }
@@ -78,11 +80,15 @@ void game() {
   if (leftBallPaddleD <= leftD/2 + ballD/2) {
     vx = (ballX - leftX) / 10;
     vy = (ballY - leftY) / 10;
+    paddleBounce.rewind();
+    paddleBounce.play();
   }
 
   if (rightBallPaddleD <= leftD/2 + ballD/2) {
     vx = (ballX - rightX) / 10;
     vy = (ballY - rightY) / 10;
+    paddleBounce.rewind();
+    paddleBounce.play();
   }
 
   //Gameover transition

@@ -93,6 +93,9 @@ void setup() {
   intro = minim.loadFile("intro.mp3");
   score = minim.loadFile("score.mp3");
   victory = minim.loadFile("victory.mp3");
+  paddleBounce = minim.loadFile("paddleBounce.mp3");
+  wallBounce = minim.loadFile("wallBounce.mp3");
+  wallBounce.setGain(5);
 }
 
 void draw() {
