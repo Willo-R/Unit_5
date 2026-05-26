@@ -1,4 +1,4 @@
-int mode;
+int mode; 
 final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
@@ -23,6 +23,7 @@ float vy;
 //brick var
 int[] x;
 int[] y;
+boolean[] alive;
 int brickD;
 int n;
 int tempX;
@@ -38,6 +39,10 @@ color blue = #00BFFF;
 color orange = #FFC107;
 color lightGreen = #8BC34A;
 color background = #6A0572;
+color AO = #00A3E0;
+color rolandGarros= #C45A3D;
+color wimbledon = #A1C68D;
+color usOpen = #6F4C7A;
 
 
 void setup() {
@@ -45,7 +50,7 @@ void setup() {
   textAlign(CENTER, CENTER);
   textSize(100);
   stroke(0);
-  strokeWeight(2);
+  strokeWeight(3);
   mode = INTRO;
 
   //initialize keys
@@ -69,6 +74,7 @@ void setup() {
   n = 36;
   x = new int[n];  //instantiation
   y = new int[n];
+  alive = new boolean[n];
   brickD = 40;
   tempX = 80;
   tempY = 80;
@@ -77,12 +83,13 @@ void setup() {
   while(i < n){
     x[i] = tempX;
     y[i] = tempY;
+    alive[i] = true;
     tempX += 80;
     if(tempX == width) {
       tempX = 80;
       tempY += 80;
     }
-    i += 1;
+    i++;
   }
 }
 

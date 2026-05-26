@@ -1,19 +1,20 @@
 void game() {
-  background(green);
-  fill(255);
+
+  //background
+  drawBackground();
 
   //draw bricks & brick collision
+  stroke(0);
   int i = 0;
-  while(i < n) {
-    circle(x[i], y[i], brickD);
-    if(dist(ballX, ballY, x[i], y[i]) <= ballD/2 + brickD/2) {
-    vx = (ballX - x[i]) / 6;
-    vy = (ballY - y[i]) / 6;
-  }    
-    i += 1;
+  while (i < n) {
+    if (alive[i]) {
+      manageBrick(i);
+    }
+    i++;
   }
 
   //draw paddle
+  fill(255);
   circle(paddleX, paddleY, paddleD);
 
   //animate paddle
