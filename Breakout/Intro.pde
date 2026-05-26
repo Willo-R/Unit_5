@@ -4,3 +4,7 @@ void intro(){
   text("Breakout!", 400, 200);
 
 }
+
+void introClicks(){
+  mode = GAME;
+}
