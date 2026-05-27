@@ -34,27 +34,65 @@ void drawBackground() {
   //Center mark at net
   strokeWeight(3);
   line(width / 2 - 10, height / 2, width / 2 + 10, height / 2);
-  
+
   //score display
-  int score = 0;
   textSize(50);
   text("Score: " + score, 140, 720);
+
+  //lives display
+  text("Lives: " + lives, 660, 720);
 }
 
-void manageBrick(int i){
+void manageBrick(int i) {
   //color
-    if (i < 9) fill(AO);
-    else if (i < 18) fill(rolandGarros);
-    else if (i < 27) fill(wimbledon);
-    else if (i < 36) fill(usOpen);
+  if (i < 9) fill(AO);
+  else if (i < 18) fill(rolandGarros);
+  else if (i < 27) fill(wimbledon);
+  else if (i < 36) fill(usOpen);
 
-    //brick display
-    circle(x[i], y[i], brickD);
+  //brick display
+  circle(x[i], y[i], brickD);
 
-    //collision
-    if (dist(ballX, ballY, x[i], y[i]) <= ballD/2 + brickD/2) {
-      vx = (ballX - x[i]) / 6;
-      vy = (ballY - y[i]) / 6;
-      alive[i] = false;
-    }
+  //collision
+  if (dist(ballX, ballY, x[i], y[i]) <= ballD/2 + brickD/2) {
+    vx = (ballX - x[i]) / 6;
+    vy = (ballY - y[i]) / 6;
+    alive[i] = false;
+    //scoreboard
+    score++;
+  }
+}
+
+void reset() {
+  resetBall();
+
+  //initialize keys
+  aKey = dKey = false;
+
+  int i = 0;
+  while (i < n) {
+    alive[i] = true;
+    i++;
+  }
+  
+  //score reset
+  score = 0;
+  lives = 3;
+  
+  //text reset
+  textSize(100);
+  stroke(0);
+  strokeWeight(3);
+}
+
+
+void resetBall() {
+  //initialize ball
+  ballX = 400;
+  ballY = 600;
+
+  //initialize movement
+  vx = 0;
+  vy = 2;
+  timer = 50;
 }

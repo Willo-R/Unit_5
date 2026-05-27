@@ -29,6 +29,11 @@ int n;
 int tempX;
 int tempY;
 
+//trackers
+int score;
+int lives;
+int timer;
+
 ///color pallete
 color gray = #d3d3d3;
 color yellow = #FFEB3B;
@@ -68,7 +73,7 @@ void setup() {
 
   //initialize movement
   vx = 0;
-  vy = 1;
+  vy = 2;
   
   //set up array of bricks
   n = 36;
@@ -91,6 +96,11 @@ void setup() {
     }
     i++;
   }
+  
+  //trackers initialization
+  score = 0;
+  lives = 3;
+  timer = 50;
 }
 
 void draw() {
