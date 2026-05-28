@@ -34,6 +34,9 @@ int score;
 int lives;
 int timer;
 
+//font
+PFont tennis;
+
 ///color pallete
 color gray = #d3d3d3;
 color yellow = #FFEB3B;
@@ -101,6 +104,9 @@ void setup() {
   score = 0;
   lives = 3;
   timer = 50;
+  
+  //font
+  tennis = createFont("tennis.ttf", 100);
 }
 
 void draw() {

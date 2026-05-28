@@ -1,6 +1,9 @@
 void intro() {
   background(gray);
   fill(0);
+  
+  //title
+  textFont(tennis);
   text("Breakout!", 400, 200);
 }
 

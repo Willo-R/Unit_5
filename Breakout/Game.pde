@@ -61,6 +61,9 @@ void game() {
   
   //timer
   timer--;
+  
+  //prevent horizontal movement
+  if(vy == 0) vy = random(-0.1, 0.1);
 }
 
 void gameClicks() {
