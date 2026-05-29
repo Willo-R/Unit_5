@@ -8,6 +8,9 @@ final int GAMEOVER = 3;
 PImage[] introGIF;
 int introFrameNum;
 int introFrame;
+PImage[] pauseGIF;
+int pauseFrameNum;
+int pauseFrame;
 
 //keyboard var
 boolean aKey, dKey;
@@ -120,6 +123,15 @@ void setup() {
   while(frameIntro < introFrameNum) {
     introGIF[frameIntro] = loadImage("frame_"+frameIntro+"_delay-0.04s.gif");
     frameIntro++;
+  }
+  
+  //pause GIF
+  pauseFrameNum = 29;
+  pauseGIF = new PImage[pauseFrameNum];
+  int framePause = 0;
+  while(framePause < pauseFrameNum){
+    pauseGIF[framePause] = loadImage("frame_"+framePause+"_delay-0.03s.gif");
+    framePause++;
   }
 }
 

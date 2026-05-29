@@ -4,7 +4,7 @@ void gameover() {
   introFrame++;
   if (introFrame == introFrameNum) introFrame = 0;
 
-  //title
+  //text
   fill(255);
   textFont(tennis);
   textSize(150);
@@ -15,7 +15,7 @@ void gameover() {
   } else {
     text("You lost!", 400, 350);
     textSize(50);
-    text("<click to start>", 400, 650);
+    text("<click to restart>", 400, 650);
   }
 }
 
