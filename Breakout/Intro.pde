@@ -1,10 +1,18 @@
 void intro() {
-  background(gray);
-  fill(0);
+  //GIF
+  image(introGIF[introFrame], 0, 0, width, height);
+  introFrame++;
+  if(introFrame == introFrameNum) introFrame = 0;
   
   //title
+  fill(255);
   textFont(tennis);
-  text("Breakout!", 400, 200);
+  textSize(150);
+  text("Breakout!", 400, 350);
+  
+  textSize(50);
+  fill(rolandGarros);
+  text("<click to start>" , 400, 650);
 }
 
 void introClicks() {

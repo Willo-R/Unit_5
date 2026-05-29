@@ -4,6 +4,11 @@ final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
 
+//GIF
+PImage[] introGIF;
+int introFrameNum;
+int introFrame;
+
 //keyboard var
 boolean aKey, dKey;
 
@@ -106,7 +111,16 @@ void setup() {
   timer = 50;
   
   //font
-  tennis = createFont("tennis.ttf", 100);
+  tennis = createFont("tennis.otf", 100);
+  
+  //intro GIF  
+  introFrameNum = 96;
+  introGIF = new PImage[introFrameNum];
+  int frameIntro = 0;
+  while(frameIntro < introFrameNum) {
+    introGIF[frameIntro] = loadImage("frame_"+frameIntro+"_delay-0.04s.gif");
+    frameIntro++;
+  }
 }
 
 void draw() {
