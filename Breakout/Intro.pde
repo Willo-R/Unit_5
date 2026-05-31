@@ -13,8 +13,12 @@ void intro() {
   textSize(50);
   fill(rolandGarros);
   text("<click to start>" , 400, 650);
+  
+  //sound
+  intro.play();
 }
 
 void introClicks() {
   mode = GAME;
+  intro.pause();
 }

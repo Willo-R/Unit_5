@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 int mode; 
 final int INTRO = 0;
 final int GAME = 1;
@@ -11,6 +18,10 @@ int introFrame;
 PImage[] pauseGIF;
 int pauseFrameNum;
 int pauseFrame;
+
+//images
+PImage win;
+PImage lose;
 
 //keyboard var
 boolean aKey, dKey;
@@ -44,6 +55,10 @@ int timer;
 
 //font
 PFont tennis;
+
+//sound variables
+Minim minim;
+AudioPlayer intro, wallBounce, miss, paddleBounce, ballBounce, winning, losing;
 
 ///color pallete
 color gray = #d3d3d3;
@@ -84,7 +99,7 @@ void setup() {
 
   //initialize movement
   vx = 0;
-  vy = 2;
+  vy = 3;
   
   //set up array of bricks
   n = 36;
@@ -133,6 +148,21 @@ void setup() {
     pauseGIF[framePause] = loadImage("frame_"+framePause+"_delay-0.03s.gif");
     framePause++;
   }
+  
+  //images
+  win = loadImage("win.jpg");
+  lose = loadImage("lose.jpg");
+  
+  //sound variables
+  minim = new Minim(this);
+  intro = minim.loadFile("wimbledon.mp3");
+  wallBounce = minim.loadFile("wallBounce.mp3");
+  miss = minim.loadFile("miss.mp3");
+  paddleBounce = minim.loadFile("paddleBounce.mp3");
+  ballBounce = minim.loadFile("ballBounce.mp3");
+  ballBounce.setGain(15);
+  winning = minim.loadFile("winning.mp3");
+  losing = minim.loadFile("losing.mp3");
 }
 
 void draw() {

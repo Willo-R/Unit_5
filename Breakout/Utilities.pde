@@ -55,9 +55,14 @@ void manageBrick(int i) {
 
   //collision
   if (dist(ballX, ballY, x[i], y[i]) <= ballD/2 + brickD/2) {
-    vx = (ballX - x[i]) / 6;
-    vy = (ballY - y[i]) / 6;
+    vx = (ballX - x[i]) / 3;
+    vy = (ballY - y[i]) / 3;
     alive[i] = false;
+    
+    //sound
+    ballBounce.rewind();
+    ballBounce.play();
+    
     //scoreboard
     score++;
   }
@@ -83,6 +88,9 @@ void reset() {
   textSize(100);
   stroke(0);
   strokeWeight(3);
+  
+  //intro song
+  intro.rewind();
 }
 
 
@@ -93,6 +101,6 @@ void resetBall() {
 
   //initialize movement
   vx = 0;
-  vy = 2;
+  vy = 3;
   timer = 50;
 }
